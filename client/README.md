@@ -1,6 +1,8 @@
-## Netshooter Client
+# Netshooter Client
 
-#### Todo:
+Front-end for Netshooter. Includes AngularJS app, entity management, client-side procedural generation, input handling, and communication with back-end.
+
+## Todo:
 - Set up a basic angular 2 app.
   - [Angular 2 in Plain JS](https://daveceddia.com/angular-2-in-plain-js/)
 - Or use a Yeoman generator
