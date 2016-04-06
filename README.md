@@ -2,6 +2,12 @@
 
 A top-down multiplayer 2D shooter that uses simple game maps designed in notepad. These maps reside amongst a procedurally generated ether, allowing players to travel between them.
 
+### Project Layout
+
+- [Client](https://github.com/justinmahar/netshooter/tree/master/client) - Front-end Angular client.
+- [Common](https://github.com/justinmahar/netshooter/tree/master/common) - Libs shared by front- and back-end, such as scripts.
+- [Server](https://github.com/justinmahar/netshooter/tree/master/server) - Back-end node.js server.
+
 ### Resources
 
 #### Networking
