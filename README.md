@@ -21,6 +21,7 @@ A top-down multiplayer 2D shooter that uses simple game maps designed in notepad
 - [Real Time Multiplayer](http://buildnewgames.com/real-time-multiplayer/)
 - [Valve: Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization](https://developer.valvesoftware.com/wiki/Latency_Compensating_Methods_in_Client/Server_In-game_Protocol_Design_and_Optimization)
 - [Valve: Source Multiplayer Networking](https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking) - Check out the "See also" links at the bottom, too.
+- [Isogenic Game Engine](http://www.isogenicengine.com/) - Promising looking game engine that was abandoned in 2013. It has the exact realtime multiplayer functionality we're looking to create. Worth a look.
 
 ### Procedural Gen
 - [The Book of Shaders](http://patriciogonzalezvivo.com/2015/thebookofshaders/11/) - Shading algorithms, useful for procedural generation.
