@@ -10,9 +10,15 @@ A top-down multiplayer 2D shooter that uses simple game maps designed in notepad
 
 ## Resources
 
+### Game Programming
+- [How to Build an Entity Component System Game in Javascript](http://vasir.net/blog/game-development/how-to-build-entity-component-system-in-javascript)
+- [Game Programming Patterns](http://gameprogrammingpatterns.com/contents.html)
+- [Refactoring Game Entities with Components](http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/)
+
 ### Networking
 - [RAFT](http://thesecretlivesofdata.com/raft/) - Visual demonstration of Raft: Understandable Distributed Consensus
 - [Fast-Paced Multiplayer](http://www.gabrielgambetta.com/fpm1.html) - Article discussing client-side prediction, dead reckoning, entity interpolation, and lag compensation.
+- [Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization](https://developer.valvesoftware.com/wiki/Latency_Compensating_Methods_in_Client/Server_In-game_Protocol_Design_and_Optimization)
 
 ### Procedural Gen
 - [The Book of Shaders](http://patriciogonzalezvivo.com/2015/thebookofshaders/11/) - Shading algorithms, useful for procedural generation.
@@ -21,5 +27,6 @@ A top-down multiplayer 2D shooter that uses simple game maps designed in notepad
 - [Procedural Generation Subreddit](https://www.reddit.com/r/proceduralgeneration)
 
 ### Rendering
+- [Phaser](http://phaser.io/) A fast, free and fun open source framework for Canvas and WebGL powered browser games
 - [Pixi.js](http://www.pixijs.com/) - 2D webGL renderer with canvas fallback
 - [Oryx Design Lab](http://oryxdesignlab.com/) - Affordable tilesets. Maybe we'll use one of these?
