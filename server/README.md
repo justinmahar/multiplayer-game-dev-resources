@@ -12,4 +12,4 @@ Back-end for Netshooter. Includes node server, server-side procedural generation
   - [Socket.io](http://socket.io/) -  An event-based bi-directional communication layer for realtime web applications, built atop Engine.IO.
 
 ### Game 
-  - [p2.js](https://schteppe.github.io/p2.js/) - 2D rigid body physics engine written in JavaScript. Includes collision detection, contacts, friction, restitution, motors, springs, advanced constraints and various shape types.
+  - [p2.js v0.7.0](https://schteppe.github.io/p2.js/) - 2D rigid body physics engine written in JavaScript. Includes collision detection, contacts, friction, restitution, motors, springs, advanced constraints and various shape types.

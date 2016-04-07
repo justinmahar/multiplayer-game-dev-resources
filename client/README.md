@@ -5,7 +5,10 @@ Front-end for Netshooter. Includes AngularJS app, entity management, client-side
 ## Technologies/Frameworks
 
 ### Front-end
-  - [Angular 2](https://angular.io/)
+  - [Angular 2](https://angular.io/) - Development platform for building mobile and desktop web applications.
+
+## Physics Engine
+  - [p2.js v0.7.0 (Phaser adaptation)](https://github.com/photonstorm/phaser) - 2D rigid body physics engine written in JavaScript. Includes collision detection, contacts, friction, restitution, motors, springs, advanced constraints and various shape types.
 
 ### Rendering Engine
   - [Phaser](https://github.com/photonstorm/phaser) - Phaser is a fast, free and fun open source HTML5 game framework. It uses a custom build of Pixi.js for WebGL and Canvas rendering across desktop and mobile web browsers.
