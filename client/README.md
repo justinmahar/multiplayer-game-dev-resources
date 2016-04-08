@@ -6,9 +6,17 @@ Front-end for Netshooter. Includes AngularJS app, entity management, client-side
 
 - In a terminal, navigate to the test directory. Run this command:
 
-  ```
-      python -m http.server
-  ```
+  - Python 3.x
+
+      ```
+          python -m http.server
+      ```
+
+  - Python 2.x
+
+      ```
+          python -m SimpleHTTPServer 8000
+      ```
 
 - Open a browser and navigate to [localhost:8000](http://localhost:8000)
 
