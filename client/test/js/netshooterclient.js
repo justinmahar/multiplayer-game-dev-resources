@@ -7,6 +7,18 @@
 
       let host = (!("host" in options)) ? null : options["host"];
 
+      let sharedPlayControls = {
+        leftDown: false,
+        rightDown: false,
+        upDown: false
+      }
+
+      let myPlayControls = {
+        leftDown: false,
+        rightDown: false,
+        upDown: false
+      }
+
       var IO = {
         init: function() {
 
@@ -82,6 +94,44 @@
         onMove : function(data) {
           console.log("Move from server:");
           console.log(data);
+
+          if(("move" in data))
+          {
+            let move = data["move"];
+            if(("input" in move))
+            {
+              let input = move["input"];
+              console.log("input: " + input);
+
+              if(input == "rightDown")
+              {
+                sharedPlayControls.rightDown = true;
+              }
+              else if(input == "rightUp")
+              {
+                sharedPlayControls.rightDown = false;
+              }
+
+              else if(input == "leftDown")
+              {
+                sharedPlayControls.leftDown = true;
+              }
+              else if(input == "leftUp")
+              {
+                sharedPlayControls.leftDown = false;
+              }
+
+              else if(input == "upDown")
+              {
+                sharedPlayControls.upDown = true;
+              }
+              else if(input == "upUp")
+              {
+                sharedPlayControls.upDown = false;
+              }
+
+            }
+          }
         }
 
       }
@@ -197,23 +247,33 @@
           //  Reset the players velocity (movement)
           player.body.velocity.x = 0;
 
-          if (cursors.left.isDown)
+          if (cursors.left.isDown || sharedPlayControls.leftDown)
           {
               //  Move to the left
               player.body.velocity.x = -350;
 
               player.animations.play('left');
 
-              IO.sendMove({"input":"left"});
+              // If we just pressed it...
+              if(!myPlayControls.leftDown && cursors.left.isDown)
+              {
+                myPlayControls.leftDown = true; 
+                IO.sendMove({"input":"leftDown"});
+              }
           }
-          else if (cursors.right.isDown)
+          else if (cursors.right.isDown || sharedPlayControls.rightDown)
           {
               //  Move to the right
               player.body.velocity.x = 350;
 
               player.animations.play('right');
 
-              IO.sendMove({"input":"right"});
+              // If we just pressed it...
+              if(!myPlayControls.rightDown && cursors.right.isDown)
+              {
+                myPlayControls.rightDown = true; 
+                IO.sendMove({"input":"rightDown"});
+              }
           }
           else
           {
@@ -224,12 +284,39 @@
           }
           
           //  Allow the player to jump if they are touching the ground.
-          if (cursors.up.isDown && player.body.touching.down)
+          if ((cursors.up.isDown && player.body.touching.down) || sharedPlayControls.upDown)
           {
               player.body.velocity.y = -750;
-              IO.sendMove({"input":"up"});
+
+              // If we just pressed it...
+              if(!myPlayControls.upDown && cursors.up.isDown)
+              {
+                myPlayControls.upDown = true; 
+                IO.sendMove({"input":"upDown"});
+              }
           }
 
+          // If we just released left...
+          if(myPlayControls.leftDown && !cursors.left.isDown)
+          {
+            myPlayControls.leftDown = false;
+            IO.sendMove({"input":"leftUp"});
+          }
+
+          // If we just released right...
+          if(myPlayControls.rightDown && !cursors.right.isDown)
+          {
+            myPlayControls.rightDown = false;
+            IO.sendMove({"input":"rightUp"});
+          }
+
+
+          // If we just released up...
+          if(myPlayControls.upDown && !cursors.up.isDown)
+          {
+            myPlayControls.upDown = false;
+            IO.sendMove({"input":"upUp"});
+          }
       }
 
       function collectStar (player, star) {
