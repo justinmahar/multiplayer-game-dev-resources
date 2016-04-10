@@ -1,3 +1,4 @@
+"use strict";
 (function() {
   var NetshooterClient = (function() {
     var NetshooterClient = function(optionsArg) {
@@ -6,16 +7,73 @@
 
       let host = (!("host" in options)) ? null : options["host"];
 
-      let socket = null;
-      // Connect to socket.io server
-      if(host == null)
-      {
-        socket = io.connect();
+      var IO = {
+        init: function() {
+
+            // Connect to socket.io server
+            if(host == null)
+            {
+              IO.socket = io.connect();
+            }
+            else
+            {
+              IO.socket = io.connect(host);
+            }
+
+            IO.bindEvents();
+        },
+
+        /**
+         * While connected, Socket.IO will listen to the following events emitted
+         * by the Socket.IO server, then run the appropriate function.
+         */
+        bindEvents : function() {
+            IO.socket.on('connect', IO.onConnect );
+            //IO.socket.on('newGameCreated', IO.onNewGameCreated );
+            IO.socket.on('playerJoinedRoom', IO.onPlayerJoinedRoom );
+            //IO.socket.on('beginNewGame', IO.beginNewGame );
+            //IO.socket.on('newWordData', IO.onNewWordData);
+            //IO.socket.on('hostCheckAnswer', IO.hostCheckAnswer);
+            //IO.socket.on('gameOver', IO.gameOver);
+            IO.socket.on('error', IO.error );
+        },
+
+        /**
+         * The client is successfully connected!
+         */
+        onConnect : function() {
+            // Cache a copy of the client's socket.IO session ID on the App
+            IO.mySocketId = IO.socket.socket.sessionid;
+            console.log("Connected with socket ID: " + IO.mySocketId);
+
+            socket.emit('playedJoinedRoom', 'default', IO.mySocketId);
+        },
+
+        /**
+         * A player has successfully joined the game.
+         * @param data {{playerName: string, gameId: int, mySocketId: int}}
+         */
+        onPlayerJoinedRoom : function(data) {
+            // When a player joins a room, do the updateWaitingScreen funciton.
+            // There are two versions of this function: one for the 'host' and
+            // another for the 'player'.
+            //
+            // So on the 'host' browser window, the App.Host.updateWiatingScreen function is called.
+            // And on the player's browser, App.Player.updateWaitingScreen is called.
+            //App[App.myRole].updateWaitingScreen(data);
+        },
+
+        /**
+         * An error has occurred.
+         * @param data
+         */
+        onError : function(data) {
+            console.log("Error: " + data.message);
+        }
       }
-      else
-      {
-        socket = io.connect(host);
-      }
+
+      IO.init();
+
 
       var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 

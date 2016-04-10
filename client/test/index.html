@@ -16,7 +16,9 @@
 <script type="text/javascript">
 
     $(function (){
-        let options = {"host": "b6dc971c.ngrok.io"};
+        let useLocalhost = false;
+        let externalHost = "b6dc971c.ngrok.io";
+        let options = {"host": (useLocalhost ? null : externalHost)};
         NetshooterClient(options);
     });
 
