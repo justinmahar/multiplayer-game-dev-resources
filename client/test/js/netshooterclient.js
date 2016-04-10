@@ -31,6 +31,7 @@
             IO.socket.on('connect', IO.onConnect );
             //IO.socket.on('newGameCreated', IO.onNewGameCreated );
             IO.socket.on('playerJoinedRoom', IO.onPlayerJoinedRoom );
+            IO.socket.on('move', IO.onMove );
             //IO.socket.on('beginNewGame', IO.beginNewGame );
             //IO.socket.on('newWordData', IO.onNewWordData);
             //IO.socket.on('hostCheckAnswer', IO.hostCheckAnswer);
@@ -43,10 +44,10 @@
          */
         onConnect : function() {
             // Cache a copy of the client's socket.IO session ID on the App
-            IO.mySocketId = IO.socket.socket.sessionid;
+            IO.mySocketId = IO.socket.id;
             console.log("Connected with socket ID: " + IO.mySocketId);
 
-            socket.emit('playedJoinedRoom', 'default', IO.mySocketId);
+            IO.socket.emit('playerJoinedRoom', 'default', IO.mySocketId);
         },
 
         /**
@@ -69,7 +70,20 @@
          */
         onError : function(data) {
             console.log("Error: " + data.message);
+        },
+
+        sendMove : function(move) {
+          console.log("Sending move: ");
+          console.log(move);
+
+          IO.socket.emit('move', move, IO.mySocketId);
+        },
+
+        onMove : function(data) {
+          console.log("Move from server:");
+          console.log(data);
         }
+
       }
 
       IO.init();
@@ -83,7 +97,6 @@
           game.load.image('ground', 'assets/platform.png');
           game.load.image('star', 'assets/star.png');
           game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
-
       }
 
       var player;
@@ -96,6 +109,8 @@
       var winText;
 
       function create() {
+
+          game.stage.disableVisibilityChange = true;
 
           //  We're going to be using physics, so enable the Arcade Physics system
           game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -188,6 +203,8 @@
               player.body.velocity.x = -350;
 
               player.animations.play('left');
+
+              IO.sendMove({"input":"left"});
           }
           else if (cursors.right.isDown)
           {
@@ -195,6 +212,8 @@
               player.body.velocity.x = 350;
 
               player.animations.play('right');
+
+              IO.sendMove({"input":"right"});
           }
           else
           {
@@ -208,6 +227,7 @@
           if (cursors.up.isDown && player.body.touching.down)
           {
               player.body.velocity.y = -750;
+              IO.sendMove({"input":"up"});
           }
 
       }
