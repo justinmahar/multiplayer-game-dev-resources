@@ -38,3 +38,8 @@ A top-down multiplayer 2D shooter that uses simple game maps designed in notepad
 - [Phaser](http://phaser.io/) A fast, free and fun open source framework for Canvas and WebGL powered browser games
 - [Pixi.js](http://www.pixijs.com/) - 2D webGL renderer with canvas fallback
 - [Oryx Design Lab](http://oryxdesignlab.com/) - Affordable tilesets. Maybe we'll use one of these?
+
+### Reference
+
+- [Lance](https://github.com/lance-gg/lance) - Multiplayer game server based on Node.JS
+- [Awesome Game Networking](https://github.com/MFatihMAR/Awesome-Game-Networking) - A Curated List of Game Network Programming Resources
