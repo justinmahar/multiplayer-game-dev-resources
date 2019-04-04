@@ -45,5 +45,5 @@ A top-down multiplayer 2D shooter that uses simple game maps designed in notepad
 - [Nakama](https://github.com/heroiclabs/nakama) - Distributed server for social and realtime games and apps. [https://heroiclabs.com](https://heroiclabs.com)
 - [Colyseus](https://github.com/colyseus/colyseus) - ⚔ Multiplayer Game Server for Node.js [http://colyseus.io](http://colyseus.io)
 - [Lance](https://github.com/lance-gg/lance) - Multiplayer game server based on Node.JS
+- [Popularity of Nakama, Colyseus, and Lance over time](https://star-history.t9t.io/#lance-gg/lance&colyseus/colyseus&heroiclabs/nakama)
 - [Awesome Game Networking](https://github.com/MFatihMAR/Awesome-Game-Networking) - A Curated List of Game Network Programming Resources
-- [Comparison of popular game servers](https://star-history.t9t.io/#lance-gg/lance&colyseus/colyseus&heroiclabs/nakama)
