@@ -41,5 +41,8 @@ A top-down multiplayer 2D shooter that uses simple game maps designed in notepad
 
 ### Reference
 
+- [https://github.com/topics/multiplayer-game-server](https://github.com/topics/multiplayer-game-server) - Multiplayer Game Servers (Sorted by popularity)
+- [Nakama](https://github.com/heroiclabs/nakama) - Distributed server for social and realtime games and apps. [https://heroiclabs.com](https://heroiclabs.com)
 - [Lance](https://github.com/lance-gg/lance) - Multiplayer game server based on Node.JS
 - [Awesome Game Networking](https://github.com/MFatihMAR/Awesome-Game-Networking) - A Curated List of Game Network Programming Resources
+- [Comparison of popular game servers](https://star-history.t9t.io/#lance-gg/lance&colyseus/colyseus&heroiclabs/nakama)
