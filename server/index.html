@@ -1,8 +1,0 @@
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io('http://localhost:8080');
-  socket.on('state', function (data) {
-    console.log(data);
-    socket.emit('move_entity', {"steve": [1,4]});
-  });
-</script>
